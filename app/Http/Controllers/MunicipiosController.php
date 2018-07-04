@@ -1,35 +1,34 @@
 <?php namespace App\Http\Controllers;
 
-
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use GuzzleHttp\Client;
 
 use Illuminate\Http\Request;
 
-class DepartamentosController extends Controller {
+class MunicipiosController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
 	 *
 	 * @return Response
 	 */
-	public function index()
-	{
-		$client = new Client([
-		       'base_uri' => 'https://api.salud.gob.sv/',
-		       'timeout'  => 30.0
-		   ]);
-		$response = $client->request('GET', 'departamentos',
-		       [
-		           'headers' => [
-		               'Accept'     => 'application/json'
-		           ]
-		       ]
-		   );
-		$departamentos = json_decode($response->getBody()->getContents());
-		return view('departamentos.index', compact('departamentos'));
-	}
+	 public function index()
+	 {
+		 $client = new Client([
+						'base_uri' => 'https://api.salud.gob.sv/',
+						'timeout'  => 30.0
+				]);
+		 $response = $client->request('GET', 'municipios',
+						[
+								'headers' => [
+										'Accept'     => 'application/json'
+								]
+						]
+				);
+		 $municipios = json_decode($response->getBody()->getContents());
+		 return view('municipios.index', compact('municipios'));
+	 }
 
 	/**
 	 * Show the form for creating a new resource.

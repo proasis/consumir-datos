@@ -21,4 +21,4 @@ Route::controllers([
 ]);
 
 Route::get('departamentos', 'DepartamentosController@index');
-Route::get('municipios', 'DepartamentosController@index');
+Route::get('municipios', 'MunicipiosController@index');
