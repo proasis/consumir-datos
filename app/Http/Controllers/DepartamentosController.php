@@ -18,7 +18,7 @@ class DepartamentosController extends Controller {
  {
      $client = new Client([
              'base_uri' => 'https://api.salud.gob.sv/',
-             'timeout'  => 2.0
+             'timeout'  => 30.0
          ]);
      $response = $client->request('GET', 'departamentos',
              [
